@@ -2,15 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class Creep : MonoBehaviour
 {
+    [Header("Stats")]
     public float health, maxHealth;
     public float armour;
     public float speed;
+    public float money;
+    //public float lives;
     public Vector3 objective;
 
+    [Header("UI")]
+    public GameObject canvas;
     public Image healthBar;
+
+    public NavMeshAgent agent;
+    Camera cam;
 
 
     // Start is called before the first frame update
@@ -18,13 +27,25 @@ public class Creep : MonoBehaviour
     {
         health = maxHealth;
         healthBar.fillAmount = 1;
+        agent = GetComponent<NavMeshAgent>();
+        agent.SetDestination(objective);
+        agent.speed = speed;
+        cam = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, objective, 
-            speed * Time.deltaTime);
+        canvas.transform.rotation = cam.transform.rotation;
+
+        float dist = Vector3.Distance(transform.position, objective);
+
+        if(dist < 1f)
+        {
+            FindObjectOfType<Manager>().CreepDied(0);
+
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(float value)
@@ -42,6 +63,8 @@ public class Creep : MonoBehaviour
 
         if (health <= 0)
         {
+            FindObjectOfType<Manager>().CreepDied(money);
+
             Destroy(gameObject);
         }
     }

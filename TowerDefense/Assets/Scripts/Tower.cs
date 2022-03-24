@@ -43,6 +43,8 @@ public class Tower : MonoBehaviour
             if(Vector3.Distance(transform.position, currentTarget.transform.position) < range)
             {
             currentTarget.TakeDamage(damage);
+
+            transform.LookAt(currentTarget.transform);
             }
 
         }
