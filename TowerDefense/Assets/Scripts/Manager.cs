@@ -74,6 +74,7 @@ public class Manager : MonoBehaviour
         }
 
         towerData = allTowers[value];
+        towerPrefab = towerData.prefab;
     }
 
     public void CreepDied(float creepValue)

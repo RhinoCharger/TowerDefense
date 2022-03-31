@@ -21,7 +21,7 @@ public class Tower : MonoBehaviour
         InvokeRepeating("DamageTarget", 0, fireRate);
     }
 
-    void FindTarget()
+    protected void FindTarget()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
 
@@ -36,7 +36,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    void DamageTarget()
+    protected virtual void DamageTarget()
     {
         if(currentTarget != null)
         {

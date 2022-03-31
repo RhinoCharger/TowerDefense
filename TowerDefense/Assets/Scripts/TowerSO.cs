@@ -12,4 +12,6 @@ public class TowerSO : ScriptableObject
     public float price = 20;
     public TowerSO upgrade;
     public Color towerColour = Color.white;
+
+    public GameObject prefab;
 }
