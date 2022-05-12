@@ -55,6 +55,7 @@ public class Node : MonoBehaviour
             tower.damage = manager.towerData.damage;
             tower.range = manager.towerData.range;
             tower.fireRate = manager.towerData.fireRate;
+            tower.upgradeData = manager.towerData.upgrade;
         }
     }
 

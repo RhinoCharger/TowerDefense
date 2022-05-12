@@ -365,10 +365,12 @@ MonoBehaviour:
   maxHealth: 50
   armour: 2
   speed: 1
+  money: 0
   objective: {x: -10, y: 0, z: 0}
   canvas: {fileID: 5005749246557276453}
   healthBar: {fileID: 5005749247059734323}
   agent: {fileID: 0}
+  deathParticle: {fileID: 6213985281769263217, guid: d67ebb94693bad04f84694233b5b97ac, type: 3}
 --- !u!195 &2438844362284651215
 NavMeshAgent:
   m_ObjectHideFlags: 0

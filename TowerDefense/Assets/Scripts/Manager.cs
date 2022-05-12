@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Manager : MonoBehaviour
 {
     [Header("User Interface")]
     public Button nextWaveButton;
+
+    public TextMeshProUGUI livesText;
+    public TextMeshProUGUI moneyText;
+
+    public GameObject combatUI;
+    public GameObject winScreen;
+    public GameObject loseScreen;
 
     [Header("Player Data")]
     public int lives;
@@ -33,7 +41,11 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        ChangeMoney();
+        ChangeLives(0);
+        combatUI.SetActive(true);
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -58,6 +70,7 @@ public class Manager : MonoBehaviour
         if(price <= money)
         {
             money = money - price;
+            ChangeMoney();
             return true;
         }
         else
@@ -80,6 +93,7 @@ public class Manager : MonoBehaviour
     public void CreepDied(float creepValue)
     {
         money = money + creepValue;
+        ChangeMoney();
         livingCreeps--;
         if(livingCreeps == 0)
         {
@@ -90,6 +104,8 @@ public class Manager : MonoBehaviour
                 if(waveInAll >= allWaves.Count)
                 {
                     Debug.Log("You have beaten all the waves, now go do something with your life...");
+                    winScreen.SetActive(true);
+                    combatUI.SetActive(false);
                 }
             }
         }
@@ -129,4 +145,28 @@ public class Manager : MonoBehaviour
         }
     }
 
+    void ChangeMoney()
+    {
+        moneyText.text = "Money: " + money;
+    }
+
+    public void ChangeLives(int value) 
+    {
+        lives = lives + value;
+        livesText.text = "Lives: " + lives;
+
+        if (lives <= 0)
+        {
+            loseScreen.SetActive(true);
+            combatUI.SetActive(false);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(creepSpawn, 0.5f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(creepTarget, 0.5f);
+    }
 }

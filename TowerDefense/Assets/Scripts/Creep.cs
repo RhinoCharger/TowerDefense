@@ -21,6 +21,8 @@ public class Creep : MonoBehaviour
     public NavMeshAgent agent;
     Camera cam;
 
+    public GameObject deathParticle;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,12 +45,13 @@ public class Creep : MonoBehaviour
         if(dist < 1f)
         {
             FindObjectOfType<Manager>().CreepDied(0);
+            FindObjectOfType<Manager>().ChangeLives(-1);
 
             Destroy(gameObject);
         }
     }
 
-    public void TakeDamage(float value)
+    public void TakeDamage(float value, Tower damageSource)
     {
         if(armour <= 0)
         {
@@ -64,6 +67,10 @@ public class Creep : MonoBehaviour
         if (health <= 0)
         {
             FindObjectOfType<Manager>().CreepDied(money);
+
+            GameObject particle = Instantiate(deathParticle, transform.position, Quaternion.identity);
+            //Destroy(particle, 10);
+            particle.transform.LookAt(damageSource.transform, Vector3.back);
 
             Destroy(gameObject);
         }

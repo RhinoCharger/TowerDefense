@@ -19,7 +19,7 @@ public class Tower_Pulse : Tower
             if (tempCreep != null)
             {
                 //nearbyCreeps.Add(tempCreep);
-                tempCreep.TakeDamage(damage);
+                tempCreep.TakeDamage(damage, this);
             }
 
         }

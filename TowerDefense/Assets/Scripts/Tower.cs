@@ -9,6 +9,8 @@ public class Tower : MonoBehaviour
     public float range;
     public float damage;
     public float fireRate;
+    public TowerSO upgradeData;
+
     public TargetType targetType = TargetType.close;
 
     public Creep currentTarget;
@@ -42,7 +44,7 @@ public class Tower : MonoBehaviour
         {
             if(Vector3.Distance(transform.position, currentTarget.transform.position) < range)
             {
-            currentTarget.TakeDamage(damage);
+            currentTarget.TakeDamage(damage, this);
 
             transform.LookAt(currentTarget.transform);
             }
@@ -52,12 +54,34 @@ public class Tower : MonoBehaviour
         {
             FindTarget();
         }
-        Debug.Log("Tower is shooting");
+        //Debug.Log("Tower is shooting");
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnMouseDown()
+    {
+        if (upgradeData == null)
+        {
+            return;
+        }
+
+        Manager manager = FindObjectOfType<Manager>();
+        if (manager.BuySomething(upgradeData.price) == false)
+        {
+            return;
+        }
+
+
+        range = upgradeData.range;
+        damage = upgradeData.damage;
+        fireRate = upgradeData.fireRate;
+        GetComponent<Renderer>().material.color = upgradeData.towerColour;
+
+        upgradeData = upgradeData.upgrade;
     }
 }

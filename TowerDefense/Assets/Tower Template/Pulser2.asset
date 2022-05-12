@@ -17,5 +17,5 @@ MonoBehaviour:
   fireRate: 2
   price: 100
   upgrade: {fileID: 0}
-  towerColour: {r: 0, g: 0.23760445, b: 0.4433962, a: 1}
+  towerColour: {r: 0.08993414, g: 0.26037046, b: 0.4056604, a: 1}
   prefab: {fileID: 5545337654473079911, guid: 59792fed6905ebb45b3e246b6fed5fff, type: 3}
