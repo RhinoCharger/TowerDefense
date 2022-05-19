@@ -15,10 +15,12 @@ public class Tower : MonoBehaviour
 
     public Creep currentTarget;
 
+    AudioSource source;
 
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         FindTarget();
         InvokeRepeating("DamageTarget", 0, fireRate);
     }
@@ -44,9 +46,11 @@ public class Tower : MonoBehaviour
         {
             if(Vector3.Distance(transform.position, currentTarget.transform.position) < range)
             {
-            currentTarget.TakeDamage(damage, this);
+                currentTarget.TakeDamage(damage, this);
 
-            transform.LookAt(currentTarget.transform);
+                transform.LookAt(currentTarget.transform);
+
+                source.PlayOneShot(source.clip);
             }
 
         }

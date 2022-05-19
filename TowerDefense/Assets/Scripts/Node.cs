@@ -40,8 +40,6 @@ public class Node : MonoBehaviour
                 return;
             }
 
-            Debug.Log("I have been clicked");
-
             GameObject newObject = Instantiate(manager.towerPrefab);
 
             spawnedTower = newObject;

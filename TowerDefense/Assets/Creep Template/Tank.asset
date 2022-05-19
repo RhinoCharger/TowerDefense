@@ -16,3 +16,5 @@ MonoBehaviour:
   armour: 4
   speed: 0.5
   money: 20
+  creepMesh: {fileID: 4300000, guid: 5c929a1e7e6053f499c799f0b76fc965, type: 3}
+  creepMaterial: {fileID: 2100000, guid: 780b55d2458349f4b91fca04c2846ba5, type: 2}

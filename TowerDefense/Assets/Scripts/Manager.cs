@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Manager : MonoBehaviour
@@ -15,6 +16,9 @@ public class Manager : MonoBehaviour
     public GameObject combatUI;
     public GameObject winScreen;
     public GameObject loseScreen;
+
+    public TextMeshProUGUI highScoreText;
+    public TMP_InputField highScoreInput;
 
     [Header("Player Data")]
     public int lives;
@@ -63,6 +67,71 @@ public class Manager : MonoBehaviour
         {
             SelectTower(2);
         }
+        
+        /*if (Input.GetKeyDown(KeyCode.P))
+        {
+            HighScoreData data = SaveSystem.LoadPlayer();
+            Debug.Log("Level: " + data.levelName);
+        }*/
+
+
+
+    }
+
+    public void SaveNewScore()
+    {
+        string name = highScoreInput.text;
+        float score = money;
+        HighScoreData data = SaveSystem.LoadPlayer();
+
+        if(data.scores.Count == 0)
+        {
+            data.scores.Add(score);
+            data.names.Add(name);
+        }
+        else
+        {
+            if (score <= data.scores[data.scores.Count - 1])
+            {
+                data.scores.Add(score);
+                data.names.Add(name);
+            }
+
+            for (int i = 0; i < data.scores.Count; i++)
+            {
+                if(data.scores[i] < score)
+                {
+                    data.scores.Insert(i, score);
+                    data.names.Insert(i, name);
+                    break;
+                }
+            }
+        }
+
+        SaveSystem.SavePlayer(data);
+        LoadHighScores();
+    }
+
+    void LoadHighScores()
+    {
+        HighScoreData data = SaveSystem.LoadPlayer();
+
+        string displayString = data.levelName + "\n";
+
+        for (int i = 0; i < data.scores.Count; i++)
+        {
+            displayString += data.names[i] + ": ";
+            displayString += data.scores[i] + "\n";
+        }
+
+        highScoreText.text = displayString;
+    }
+
+    public void ClearHighScores()
+    {
+        HighScoreData clearData = new HighScoreData(SceneManager.GetActiveScene().name);
+        SaveSystem.SavePlayer(clearData);
+        LoadHighScores();
     }
 
     public bool BuySomething(float price)
@@ -105,6 +174,7 @@ public class Manager : MonoBehaviour
                 {
                     Debug.Log("You have beaten all the waves, now go do something with your life...");
                     winScreen.SetActive(true);
+                    LoadHighScores();
                     combatUI.SetActive(false);
                 }
             }
@@ -131,6 +201,9 @@ public class Manager : MonoBehaviour
         creep.armour = currentWave.creeps[creepInWave].armour;
         creep.speed = currentWave.creeps[creepInWave].speed;
         creep.money = currentWave.creeps[creepInWave].money;
+
+        newObject.GetComponent<MeshFilter>().mesh = currentWave.creeps[creepInWave].creepMesh;
+        newObject.GetComponent<MeshRenderer>().material = currentWave.creeps[creepInWave].creepMaterial;
 
         if(creepInWave < currentWave.creeps.Count - 1)
         {
@@ -160,6 +233,11 @@ public class Manager : MonoBehaviour
             loseScreen.SetActive(true);
             combatUI.SetActive(false);
         }
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void OnDrawGizmos()
