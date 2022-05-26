@@ -12,6 +12,10 @@ public class Tower_Pulse : Tower
 
         nearbyColliders = Physics.OverlapSphere(transform.position, range);
 
+
+        bool enemyNear = false;
+
+
         for (int i = 0; i < nearbyColliders.Length; i++)
         {
             Creep tempCreep = nearbyColliders[i].GetComponent<Creep>();
@@ -20,9 +24,16 @@ public class Tower_Pulse : Tower
             {
                 //nearbyCreeps.Add(tempCreep);
                 tempCreep.TakeDamage(damage, this);
+                enemyNear = true;
             }
 
         }
+
+        if (enemyNear)
+        {
+            source.PlayOneShot(source.clip);
+        }
+
 
     }
 

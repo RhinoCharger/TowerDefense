@@ -15,7 +15,8 @@ public class Tower : MonoBehaviour
 
     public Creep currentTarget;
 
-    AudioSource source;
+    protected AudioSource source;
+    public bool constantSound = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,9 @@ public class Tower : MonoBehaviour
 
     protected void FindTarget()
     {
+        if (constantSound)
+            source.volume = 0;
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
 
         foreach (Collider item in colliders)
@@ -50,7 +54,14 @@ public class Tower : MonoBehaviour
 
                 transform.LookAt(currentTarget.transform);
 
+                if (constantSound == false)
+                {
                 source.PlayOneShot(source.clip);
+                }
+                else
+                {
+                    source.volume = 1;
+                }
             }
 
         }
@@ -74,18 +85,29 @@ public class Tower : MonoBehaviour
             return;
         }
 
+        if (upgradeData.prefab == null)
+        {
+            return;
+        }
+
         Manager manager = FindObjectOfType<Manager>();
         if (manager.BuySomething(upgradeData.price) == false)
         {
             return;
         }
 
+        GameObject newTower = Instantiate(upgradeData.prefab, transform.position, transform.rotation);
 
-        range = upgradeData.range;
-        damage = upgradeData.damage;
-        fireRate = upgradeData.fireRate;
-        GetComponent<Renderer>().material.color = upgradeData.towerColour;
+        Tower towerScript = newTower.GetComponent<Tower>();
 
-        upgradeData = upgradeData.upgrade;
+
+        towerScript.range = upgradeData.range;
+        towerScript.damage = upgradeData.damage;
+        towerScript.fireRate = upgradeData.fireRate;
+
+        towerScript.upgradeData = upgradeData.upgrade;
+
+        Destroy(gameObject);
+
     }
 }

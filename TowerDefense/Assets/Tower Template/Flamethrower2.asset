@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467b0223df5418f489891cd3f4131521, type: 3}
   m_Name: Flamethrower2
   m_EditorClassIdentifier: 
-  range: 4
-  damage: 175
+  range: 5
+  damage: 2.75
   fireRate: 0.05
-  price: 125
+  price: 135
   upgrade: {fileID: 0}
   towerColour: {r: 0.5188679, g: 0.13789257, b: 0, a: 1}
-  prefab: {fileID: 1812745218494872418, guid: 9773b39fb10ea174b8e3d3aea5806444, type: 3}
+  prefab: {fileID: 1812745218494872418, guid: 4780d5ea7644d0345ae9f2a2ae0b1ff7, type: 3}

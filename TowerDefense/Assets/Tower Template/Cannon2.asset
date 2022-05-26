@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467b0223df5418f489891cd3f4131521, type: 3}
   m_Name: Cannon2
   m_EditorClassIdentifier: 
-  range: 8
-  damage: 60
+  range: 11
+  damage: 182
   fireRate: 4
-  price: 200
+  price: 210
   upgrade: {fileID: 0}
   towerColour: {r: 0.3773585, g: 0.14417943, b: 0.31986183, a: 1}
-  prefab: {fileID: 9061193614362680241, guid: 31c285052171ce945b2c11678ef531ac, type: 3}
+  prefab: {fileID: 9061193614362680241, guid: 803bf79d6386fd24d8df920800dd6dbf, type: 3}
