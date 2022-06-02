@@ -44,9 +44,11 @@ public class Creep : MonoBehaviour
 
         if(dist < 1f)
         {
-            FindObjectOfType<Manager>().CreepDied(0);
-            FindObjectOfType<Manager>().ChangeLives(-1);
-
+            Manager man = FindObjectOfType<Manager>();
+            man.CreepDied(0);
+            man.ChangeLives(-1);
+            man.money -= 100;
+            man.ChangeMoney();
             Destroy(gameObject);
         }
     }

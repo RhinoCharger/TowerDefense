@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Sentry2
   m_EditorClassIdentifier: 
   range: 9
-  damage: 25
+  damage: 18
   fireRate: 0.25
-  price: 80
+  price: 170
   upgrade: {fileID: 0}
   towerColour: {r: 0.20188925, g: 0.3207547, b: 0, a: 1}
   prefab: {fileID: 1812745218494872418, guid: d83b6803cc29ad3469fa774e16d48c67, type: 3}

@@ -218,7 +218,7 @@ public class Manager : MonoBehaviour
         }
     }
 
-    void ChangeMoney()
+    public void ChangeMoney()
     {
         moneyText.text = "Money: " + money;
     }

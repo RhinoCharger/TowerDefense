@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Flamethrower1
   m_EditorClassIdentifier: 
   range: 4
-  damage: 1.5
+  damage: 3
   fireRate: 0.05
-  price: 70
+  price: 75
   upgrade: {fileID: 11400000, guid: d37aded2ad9c25e4e852a4ff9e1af3b8, type: 2}
   towerColour: {r: 0.8113208, g: 0.16672322, b: 0, a: 1}
   prefab: {fileID: 1812745218494872418, guid: 9773b39fb10ea174b8e3d3aea5806444, type: 3}

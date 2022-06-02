@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cannon1
   m_EditorClassIdentifier: 
   range: 9
-  damage: 94
+  damage: 100
   fireRate: 5
   price: 95
   upgrade: {fileID: 11400000, guid: 259b3214f6496734981c2eedda4a9785, type: 2}

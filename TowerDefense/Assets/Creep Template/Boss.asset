@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52634847a51534543a5860ab0717d3c2, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 400
   armour: 8
   speed: 0.15
   money: 200

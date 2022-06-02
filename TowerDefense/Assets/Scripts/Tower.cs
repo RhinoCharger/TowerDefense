@@ -63,7 +63,10 @@ public class Tower : MonoBehaviour
                     source.volume = 1;
                 }
             }
-
+            else
+            {
+                FindTarget();
+            }
         }
         else
         {
