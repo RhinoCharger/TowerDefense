@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467b0223df5418f489891cd3f4131521, type: 3}
   m_Name: Sentry1
   m_EditorClassIdentifier: 
-  range: 7
+  range: 8
   damage: 10
   fireRate: 0.4
-  price: 20
+  price: 30
   upgrade: {fileID: 11400000, guid: 42f9df02cf5004f48a56773e3f5a5e43, type: 2}
   towerColour: {r: 0.2, g: 0.74509805, b: 0.37848628, a: 1}
   prefab: {fileID: 1812745218494872418, guid: 11a9863662c6d0c4683a6cf2af41b90c, type: 3}

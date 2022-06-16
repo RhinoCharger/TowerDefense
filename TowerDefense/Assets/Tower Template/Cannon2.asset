@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Cannon2
   m_EditorClassIdentifier: 
   range: 12
-  damage: 260
-  fireRate: 4
-  price: 400
+  damage: 280
+  fireRate: 6
+  price: 680
   upgrade: {fileID: 0}
   towerColour: {r: 0.3773585, g: 0.14417943, b: 0.31986183, a: 1}
   prefab: {fileID: 9061193614362680241, guid: 803bf79d6386fd24d8df920800dd6dbf, type: 3}

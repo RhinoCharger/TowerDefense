@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467b0223df5418f489891cd3f4131521, type: 3}
   m_Name: Pulser1
   m_EditorClassIdentifier: 
-  range: 3
+  range: 5
   damage: 24
   fireRate: 4
-  price: 40
+  price: 50
   upgrade: {fileID: 11400000, guid: 40c86aa7324cd4a46a637410e167980c, type: 2}
   towerColour: {r: 0, g: 0.7011978, b: 0.764151, a: 1}
   prefab: {fileID: 5545337654473079911, guid: 59792fed6905ebb45b3e246b6fed5fff, type: 3}

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467b0223df5418f489891cd3f4131521, type: 3}
   m_Name: Cannon1
   m_EditorClassIdentifier: 
-  range: 9
-  damage: 100
-  fireRate: 5
+  range: 11
+  damage: 90
+  fireRate: 7
   price: 95
   upgrade: {fileID: 11400000, guid: 259b3214f6496734981c2eedda4a9785, type: 2}
   towerColour: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}

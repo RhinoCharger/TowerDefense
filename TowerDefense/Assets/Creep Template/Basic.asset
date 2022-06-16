@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 40
   armour: 2
-  speed: 1
+  speed: 1.2
   money: 5
   creepMesh: {fileID: 4300000, guid: 2e70299eae7fff74a9cfef859bc18b5a, type: 3}
   creepMaterial: {fileID: 2100000, guid: 1a28d63c1672b9847915a31e7e342324, type: 2}

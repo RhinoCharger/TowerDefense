@@ -7,8 +7,8 @@ public class Tower_Projectile : Tower
     [Header("Projectile Tower Mechanics")]
     public GameObject projectile;
     public Vector3 spawnPoint = Vector3.up;
-    public float projSpeed = 10;
-    public float explosionRadius = 2;
+    public float projSpeed = 25;
+    public float explosionRadius = 1;
 
     protected override void DamageTarget()
     {

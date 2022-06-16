@@ -164,6 +164,12 @@ public class Manager : MonoBehaviour
         money = money + creepValue;
         ChangeMoney();
         livingCreeps--;
+
+        if (livingCreeps < 0)
+        {
+            livingCreeps = 0;
+        }
+
         if(livingCreeps == 0)
         {
             if(creepInWave == 0)
@@ -189,9 +195,9 @@ public class Manager : MonoBehaviour
 
         livingCreeps++;
 
-        GameObject newObject = Instantiate(creepPrefab);
+        GameObject newObject = Instantiate(creepPrefab, creepSpawn, Quaternion.identity);
 
-        newObject.transform.position = creepSpawn;
+        //newObject.transform.position = creepSpawn;
 
         Creep creep = newObject.GetComponent<Creep>();
 

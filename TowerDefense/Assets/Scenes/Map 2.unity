@@ -2783,11 +2783,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1771677955493896424, guid: 0384b085ebc3ed84f9758305d00b7b02, type: 3}
       propertyPath: m_text
-      value: 400
+      value: 680
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826449205623858664, guid: 0384b085ebc3ed84f9758305d00b7b02, type: 3}
+      propertyPath: m_text
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580477252548590786, guid: 0384b085ebc3ed84f9758305d00b7b02, type: 3}
+      propertyPath: lives
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2580477252548590786, guid: 0384b085ebc3ed84f9758305d00b7b02, type: 3}
       propertyPath: money
-      value: 150
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2580477252548590786, guid: 0384b085ebc3ed84f9758305d00b7b02, type: 3}
       propertyPath: creepSpawn.x
@@ -2927,19 +2935,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3066560231665734687, guid: 0384b085ebc3ed84f9758305d00b7b02, type: 3}
       propertyPath: m_text
-      value: 210
+      value: 410
       objectReference: {fileID: 0}
     - target: {fileID: 4991741406322287240, guid: 0384b085ebc3ed84f9758305d00b7b02, type: 3}
       propertyPath: m_text
-      value: 170
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 5526032696385159337, guid: 0384b085ebc3ed84f9758305d00b7b02, type: 3}
       propertyPath: m_text
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7398975424787625432, guid: 0384b085ebc3ed84f9758305d00b7b02, type: 3}
       propertyPath: m_text
-      value: 320
+      value: 560
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0384b085ebc3ed84f9758305d00b7b02, type: 3}
